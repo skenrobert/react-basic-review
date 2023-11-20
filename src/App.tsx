@@ -7,7 +7,6 @@ import ListGroup from "./components/ListGroup";
 function App() {
   return <div> 
     <ListGroup />
-    <Message />
      </div>;
 
   // const [count, setCount] = useState(0)

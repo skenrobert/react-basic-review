@@ -1,16 +1,48 @@
-import { Fragment } from "react";
+// import { Fragment } from "react";
+import { MouseEvent } from "react";
 
 function ListGroup() {
+  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+
+  //   items = [];
+
+  if (items.length === 0)
+    return (
+      <>
+        <p>No item Found</p>
+      </>
+    );
+
+  const getMessage = () => {
+    return items.length === 0 ? <p>No item found</p> : null;
+  };
+
+  const handleClick = (event) => console.log(event);
+
   return (
-    <Fragment>
+    <>
+      <h1>List Group</h1>
+      {getMessage()}
+
+      {/* TODO: in case no used getMessage true === "printf" */}
+      {/* {items.length === 0 && <p>No item found</p>} */}
+
       <ul className="list-group">
-        <li className="list-group-item">Cras justo odio</li>
-        <li className="list-group-item">Dapibus ac facilisis in</li>
-        <li className="list-group-item">Morbi leo risus</li>
-        <li className="list-group-item">Porta ac consectetur ac</li>
-        <li className="list-group-item">Vestibulum at eros</li>
+        {items.map((item, index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={
+              (event) => console.log(event)
+              // console.log(item, index)
+            }
+          >
+            {item}
+          </li>
+        ))}
+        {/* TODO: recomendation key=item.id (in really case) */}
       </ul>
-    </Fragment>
+    </>
   );
 }
 
