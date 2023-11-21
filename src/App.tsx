@@ -2,12 +2,23 @@
 // import './App.css'
 import Message from "./Message";
 import ListGroup from "./components/ListGroup";
-
+import Alert from "./components/Alert";
 
 function App() {
-  return <div> 
-    <ListGroup />
-     </div>;
+  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+
+  const handleSelectItem = (item: string) => {
+    console.log(item);
+  };
+
+  return (
+    <div>
+      {/* <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} /> */}
+      <Alert>
+            Hello <span>World</span>
+      </Alert>
+    </div>
+  );
 
   // const [count, setCount] = useState(0)
 
@@ -37,4 +48,4 @@ function App() {
   // )
 }
 
-export default App
+export default App;
