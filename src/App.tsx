@@ -4,6 +4,7 @@ import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
+import { useState } from "react";
 
 function App() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
@@ -12,15 +13,22 @@ function App() {
     console.log(item);
   };
 
+  const [alertVisible, setAlertVisible] = useState(false);
+
   return (
     <div>
       {/* <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} /> */}
       {/* <Alert>
             Hello <span>World</span>
       </Alert> */}
-      <Button onClick={() => console.log('Clicked')}>
+
+      {/* <Button onClick={() => console.log('Clicked')}> */}
+      <Button onClick={() => setAlertVisible(true)}>
         My test
       </Button>
+
+      {alertVisible && <Alert onClose={ () => setAlertVisible(false)}> My alert </Alert>}
+
     </div>
   );
 
